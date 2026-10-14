@@ -1,0 +1,28 @@
+[0.043s] Invoking command in '/home/vmx/projeto/build/movimentacao': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/vmx/projeto/build/movimentacao -- -j4 -l4
+[0.183s] [35m[1mConsolidate compiler generated dependencies of target movimentacao[0m
+[0.273s] [ 50%] [32mBuilding CXX object CMakeFiles/movimentacao.dir/src/movimentacao.cpp.o[0m
+[45.395s] [100%] [32m[1mLinking CXX executable movimentacao[0m
+[48.417s] [100%] Built target movimentacao
+[48.452s] Invoked command in '/home/vmx/projeto/build/movimentacao' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/vmx/projeto/build/movimentacao -- -j4 -l4
+[48.557s] Invoking command in '/home/vmx/projeto/build/movimentacao': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/vmx/projeto/build/movimentacao
+[48.583s] -- Install configuration: ""
+[48.585s] -- Execute custom install script
+[48.586s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/lib/movimentacao/movimentacao
+[48.587s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/launch/movimentacao.launch.py
+[48.588s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/config/params.yaml
+[48.590s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/ament_index/resource_index/package_run_dependencies/movimentacao
+[48.591s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/ament_index/resource_index/parent_prefix_path/movimentacao
+[48.592s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/environment/ament_prefix_path.sh
+[48.593s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/environment/ament_prefix_path.dsv
+[48.597s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/environment/path.sh
+[48.598s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/environment/path.dsv
+[48.599s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/local_setup.bash
+[48.600s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/local_setup.sh
+[48.602s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/local_setup.zsh
+[48.603s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/local_setup.dsv
+[48.606s] -- Symlinking: /home/vmx/projeto/install/movimentacao/share/movimentacao/package.dsv
+[48.626s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/ament_index/resource_index/packages/movimentacao
+[48.627s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/cmake/movimentacaoConfig.cmake
+[48.628s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/cmake/movimentacaoConfig-version.cmake
+[48.629s] -- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/package.xml
+[48.635s] Invoked command in '/home/vmx/projeto/build/movimentacao' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/vmx/projeto/build/movimentacao

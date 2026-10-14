@@ -1,0 +1,305 @@
+[0.000000] (-) TimerEvent: {}
+[0.001595] (movimentacao) JobQueued: {'identifier': 'movimentacao', 'dependencies': OrderedDict()}
+[0.001735] (movimentacao) JobStarted: {'identifier': 'movimentacao'}
+[0.037605] (movimentacao) JobProgress: {'identifier': 'movimentacao', 'progress': 'cmake'}
+[0.039985] (movimentacao) JobProgress: {'identifier': 'movimentacao', 'progress': 'build'}
+[0.042367] (movimentacao) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/vmx/projeto/build/movimentacao', '--', '-j4', '-l4'], 'cwd': '/home/vmx/projeto/build/movimentacao', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'vmx'), ('SSH_CLIENT', '10.12.34.84 52216 22'), ('LC_TIME', 'pt_BR.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/vmx/.vscode-server/cli/servers/Stable-645f29cc3176500b4b5762ba887cf2a7f0ffdf2c/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/vmx/studica_ws/install/studica_control/lib:/home/vmx/orbbec_ws/install/orbbec_camera/lib:/home/vmx/orbbec_ws/install/orbbec_camera_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/home/vmx/.vscode-server/cli/servers/Stable-645f29cc3176500b4b5762ba887cf2a7f0ffdf2c/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/vmx'), ('TERM_PROGRAM_VERSION', '1.137.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-878d3dd0-bc7b-49b0-8f2a-9d466f4d03f1.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/vmx/.vscode-server/cli/servers/Stable-645f29cc3176500b4b5762ba887cf2a7f0ffdf2c/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/vmx/.vscode-server/cli/servers/Stable-645f29cc3176500b4b5762ba887cf2a7f0ffdf2c/server/node'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/vmx/projeto/install:/home/vmx/studica_ws/install:/home/vmx/orbbec_ws/install:/home/vmx/ydlidar_ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'vmx'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '4'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/vmx/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/vmx/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/vmx/.vscode-server/cli/servers/Stable-645f29cc3176500b4b5762ba887cf2a7f0ffdf2c/server/bin/remote-cli:/home/vmx/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ed58e2d99a.sock'), ('TERM_PROGRAM', 'vscode'), ('ROS_DOMAIN_ID', '42'), ('AMENT_PREFIX_PATH', '/home/vmx/studica_ws/install/studica_control:/home/vmx/projeto/install/movimentacao:/home/vmx/orbbec_ws/install/orbbec_description:/home/vmx/orbbec_ws/install/orbbec_camera:/home/vmx/orbbec_ws/install/orbbec_camera_msgs:/home/vmx/ydlidar_ros2_ws/install/ydlidar_ros2_driver:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'pt_BR.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/vmx/projeto/build/movimentacao'), ('LC_ALL', 'en_US.UTF-8'), ('COPILOT_DEBUG_NONCE', 'd78621f7608f4b547542bc42c1ee7ea8'), ('SSH_CONNECTION', '10.12.34.84 52216 10.12.34.2 22'), ('XDG_DATA_DIRS', '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/vmx/studica_ws/install/studica_control/local/lib/python3.10/dist-packages:/home/vmx/orbbec_ws/install/orbbec_camera_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('LC_PAPER', 'pt_BR.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/vmx/studica_ws/install/studica_control:/home/vmx/projeto/install/movimentacao:/home/vmx/orbbec_ws/install/orbbec_description:/home/vmx/orbbec_ws/install/orbbec_camera:/home/vmx/orbbec_ws/install/orbbec_camera_msgs:/home/vmx/ydlidar_ros2_ws/install/ydlidar_ros2_driver:/opt/ros/humble')]), 'shell': False}
+[0.099081] (-) TimerEvent: {}
+[0.184212] (movimentacao) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target movimentacao\x1b[0m\n'}
+[0.199209] (-) TimerEvent: {}
+[0.260276] (movimentacao) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/movimentacao.dir/src/movimentacao.cpp.o\x1b[0m\n'}
+[0.299418] (-) TimerEvent: {}
+[0.400122] (-) TimerEvent: {}
+[0.501273] (-) TimerEvent: {}
+[0.601965] (-) TimerEvent: {}
+[0.702686] (-) TimerEvent: {}
+[0.803425] (-) TimerEvent: {}
+[0.904181] (-) TimerEvent: {}
+[1.005069] (-) TimerEvent: {}
+[1.105894] (-) TimerEvent: {}
+[1.206651] (-) TimerEvent: {}
+[1.307369] (-) TimerEvent: {}
+[1.408084] (-) TimerEvent: {}
+[1.508907] (-) TimerEvent: {}
+[1.609639] (-) TimerEvent: {}
+[1.710399] (-) TimerEvent: {}
+[1.811179] (-) TimerEvent: {}
+[1.911926] (-) TimerEvent: {}
+[2.012967] (-) TimerEvent: {}
+[2.113771] (-) TimerEvent: {}
+[2.214517] (-) TimerEvent: {}
+[2.315337] (-) TimerEvent: {}
+[2.416162] (-) TimerEvent: {}
+[2.517080] (-) TimerEvent: {}
+[2.617897] (-) TimerEvent: {}
+[2.718659] (-) TimerEvent: {}
+[2.819497] (-) TimerEvent: {}
+[2.920206] (-) TimerEvent: {}
+[3.021121] (-) TimerEvent: {}
+[3.121916] (-) TimerEvent: {}
+[3.222689] (-) TimerEvent: {}
+[3.323499] (-) TimerEvent: {}
+[3.424436] (-) TimerEvent: {}
+[3.525154] (-) TimerEvent: {}
+[3.625857] (-) TimerEvent: {}
+[3.726578] (-) TimerEvent: {}
+[3.827412] (-) TimerEvent: {}
+[3.928216] (-) TimerEvent: {}
+[4.029042] (-) TimerEvent: {}
+[4.129764] (-) TimerEvent: {}
+[4.230522] (-) TimerEvent: {}
+[4.331266] (-) TimerEvent: {}
+[4.431997] (-) TimerEvent: {}
+[4.532871] (-) TimerEvent: {}
+[4.633616] (-) TimerEvent: {}
+[4.734369] (-) TimerEvent: {}
+[4.835121] (-) TimerEvent: {}
+[4.935873] (-) TimerEvent: {}
+[5.036706] (-) TimerEvent: {}
+[5.137551] (-) TimerEvent: {}
+[5.238296] (-) TimerEvent: {}
+[5.339035] (-) TimerEvent: {}
+[5.439816] (-) TimerEvent: {}
+[5.540674] (-) TimerEvent: {}
+[5.641413] (-) TimerEvent: {}
+[5.742165] (-) TimerEvent: {}
+[5.842956] (-) TimerEvent: {}
+[5.943722] (-) TimerEvent: {}
+[6.044520] (-) TimerEvent: {}
+[6.145267] (-) TimerEvent: {}
+[6.246069] (-) TimerEvent: {}
+[6.346828] (-) TimerEvent: {}
+[6.447612] (-) TimerEvent: {}
+[6.548485] (-) TimerEvent: {}
+[6.649258] (-) TimerEvent: {}
+[6.750032] (-) TimerEvent: {}
+[6.850802] (-) TimerEvent: {}
+[6.951582] (-) TimerEvent: {}
+[7.052436] (-) TimerEvent: {}
+[7.153208] (-) TimerEvent: {}
+[7.254054] (-) TimerEvent: {}
+[7.354803] (-) TimerEvent: {}
+[7.455590] (-) TimerEvent: {}
+[7.556494] (-) TimerEvent: {}
+[7.657228] (-) TimerEvent: {}
+[7.757966] (-) TimerEvent: {}
+[7.858700] (-) TimerEvent: {}
+[7.959454] (-) TimerEvent: {}
+[8.060199] (-) TimerEvent: {}
+[8.160958] (-) TimerEvent: {}
+[8.261704] (-) TimerEvent: {}
+[8.362514] (-) TimerEvent: {}
+[8.463267] (-) TimerEvent: {}
+[8.564200] (-) TimerEvent: {}
+[8.665461] (-) TimerEvent: {}
+[8.766182] (-) TimerEvent: {}
+[8.866918] (-) TimerEvent: {}
+[8.967681] (-) TimerEvent: {}
+[9.068492] (-) TimerEvent: {}
+[9.169203] (-) TimerEvent: {}
+[9.269938] (-) TimerEvent: {}
+[9.370688] (-) TimerEvent: {}
+[9.471524] (-) TimerEvent: {}
+[9.572360] (-) TimerEvent: {}
+[9.673107] (-) TimerEvent: {}
+[9.750045] (movimentacao) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:18\x1b[m\x1b[K:\n'}
+[9.750932] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/TitanQuad.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TitanQuad::setCmdInversions(double, double, double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[9.751412] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/TitanQuad.h:21:32:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kinv4\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kinv1\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[9.751830] (movimentacao) StderrLine: {'line': b'   21 |         motor4.cmd_inversion = \x1b[01;31m\x1b[Kinv4\x1b[m\x1b[K;\n'}
+[9.752213] (movimentacao) StderrLine: {'line': b'      |                                \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[9.752741] (movimentacao) StderrLine: {'line': b'      |                                \x1b[32m\x1b[Kinv1\x1b[m\x1b[K\n'}
+[9.769027] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/TitanQuad.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TitanQuad::setEncInversions(double, double, double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[9.769809] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/TitanQuad.h:28:32:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kinv4\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kinv1\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[9.770278] (movimentacao) StderrLine: {'line': b'   28 |         motor4.enc_inversion = \x1b[01;31m\x1b[Kinv4\x1b[m\x1b[K;\n'}
+[9.770734] (movimentacao) StderrLine: {'line': b'      |                                \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[9.771119] (movimentacao) StderrLine: {'line': b'      |                                \x1b[32m\x1b[Kinv1\x1b[m\x1b[K\n'}
+[9.773304] (-) TimerEvent: {}
+[9.787780] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/TitanQuad.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TitanQuad::setGains(double, double, double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[9.788697] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/TitanQuad.h:35:23:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kg4\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kg1\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[9.789232] (movimentacao) StderrLine: {'line': b'   35 |         motor4.gain = \x1b[01;31m\x1b[Kg4\x1b[m\x1b[K;\n'}
+[9.789857] (movimentacao) StderrLine: {'line': b'      |                       \x1b[01;31m\x1b[K^~\x1b[m\x1b[K\n'}
+[9.790348] (movimentacao) StderrLine: {'line': b'      |                       \x1b[32m\x1b[Kg1\x1b[m\x1b[K\n'}
+[9.808532] (movimentacao) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:19\x1b[m\x1b[K:\n'}
+[9.810156] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/XDrive.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TriDrive::setCmdInversions(double, double, double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[9.811927] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/XDrive.h:24:58:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kinv4\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kinv1\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[9.813708] (movimentacao) StderrLine: {'line': b'   24 |         titan_config_.setCmdInversions(inv1, inv2, inv3, \x1b[01;31m\x1b[Kinv4\x1b[m\x1b[K);\n'}
+[9.815492] (movimentacao) StderrLine: {'line': b'      |                                                          \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[9.817306] (movimentacao) StderrLine: {'line': b'      |                                                          \x1b[32m\x1b[Kinv1\x1b[m\x1b[K\n'}
+[9.829482] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/XDrive.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TriDrive::setEncInversions(double, double, double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[9.831093] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/XDrive.h:28:58:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kinv4\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kinv1\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[9.832474] (movimentacao) StderrLine: {'line': b'   28 |         titan_config_.setEncInversions(inv1, inv2, inv3, \x1b[01;31m\x1b[Kinv4\x1b[m\x1b[K);\n'}
+[9.833878] (movimentacao) StderrLine: {'line': b'      |                                                          \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[9.835515] (movimentacao) StderrLine: {'line': b'      |                                                          \x1b[32m\x1b[Kinv1\x1b[m\x1b[K\n'}
+[9.848157] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/XDrive.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TriDrive::setGains(double, double, double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[9.849910] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/XDrive.h:32:44:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kg4\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kg1\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[9.851310] (movimentacao) StderrLine: {'line': b'   32 |         titan_config_.setGains(g1, g2, g3, \x1b[01;31m\x1b[Kg4\x1b[m\x1b[K);\n'}
+[9.852778] (movimentacao) StderrLine: {'line': b'      |                                            \x1b[01;31m\x1b[K^~\x1b[m\x1b[K\n'}
+[9.854413] (movimentacao) StderrLine: {'line': b'      |                                            \x1b[32m\x1b[Kg1\x1b[m\x1b[K\n'}
+[9.869907] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/XDrive.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TriDrive::Drive(double, double, double, double&, double&, double&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[9.871580] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/XDrive.h:36:25:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ksqrt2_2\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Ksqrtf32\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[9.873196] (movimentacao) StderrLine: {'line': b'   36 |         double v1_lin = \x1b[01;31m\x1b[Ksqrt2_2\x1b[m\x1b[K * (vx - vy) + (robot_radius_ * vth);\n'}
+[9.874611] (-) TimerEvent: {}
+[9.876124] (movimentacao) StderrLine: {'line': b'      |                         \x1b[01;31m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[9.877826] (movimentacao) StderrLine: {'line': b'      |                         \x1b[32m\x1b[Ksqrtf32\x1b[m\x1b[K\n'}
+[9.890375] (movimentacao) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:19\x1b[m\x1b[K:\n'}
+[9.892089] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/XDrive.h:44:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krpm4\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krpm1\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[9.893632] (movimentacao) StderrLine: {'line': b'   44 |         \x1b[01;31m\x1b[Krpm4\x1b[m\x1b[K = (v4_lin / (2.0 * M_PI * wheel_radius_)) * 60.0 * titan_config_.motor4.cmd_inversion * titan_config_.motor4.gain;\n'}
+[9.894995] (movimentacao) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[9.896568] (movimentacao) StderrLine: {'line': b'      |         \x1b[32m\x1b[Krpm1\x1b[m\x1b[K\n'}
+[9.909538] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/XDrive.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TriDrive::getRobotVelocity(double, double, double, double&, double&, double&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[9.911008] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/include/movimentacao/XDrive.h:52:22:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kw4\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kv4\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[9.912926] (movimentacao) StderrLine: {'line': b'   52 |         double v4 = (\x1b[01;31m\x1b[Kw4\x1b[m\x1b[K * titan_config_.motor4.enc_inversion) * wheel_radius_;\n'}
+[9.914399] (movimentacao) StderrLine: {'line': b'      |                      \x1b[01;31m\x1b[K^~\x1b[m\x1b[K\n'}
+[9.915962] (movimentacao) StderrLine: {'line': b'      |                      \x1b[32m\x1b[Kv4\x1b[m\x1b[K\n'}
+[9.917396] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:\x1b[m\x1b[K At global scope:\n'}
+[9.918931] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:43:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KXDrive\x1b[m\x1b[K\xe2\x80\x99 does not name a type; did you mean \xe2\x80\x98\x1b[01m\x1b[KTriDrive\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[9.920444] (movimentacao) StderrLine: {'line': b'   43 |     \x1b[01;31m\x1b[KXDrive\x1b[m\x1b[K cinematica_;\n'}
+[9.922125] (movimentacao) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[9.923327] (movimentacao) StderrLine: {'line': b'      |     \x1b[32m\x1b[KTriDrive\x1b[m\x1b[K\n'}
+[9.975594] (-) TimerEvent: {}
+[10.077317] (-) TimerEvent: {}
+[10.178988] (-) TimerEvent: {}
+[10.280665] (-) TimerEvent: {}
+[10.318570] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid MovimentacaoVMX::cmd_vel_callback(geometry_msgs::msg::Twist_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[10.319168] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:86:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcinematica_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[10.319569] (movimentacao) StderrLine: {'line': b'   86 |         \x1b[01;31m\x1b[Kcinematica_\x1b[m\x1b[K.Drive(msg->linear.x, msg->linear.y, msg->angular.z, rpm1, rpm2, rpm3, rpm4);\n'}
+[10.319920] (movimentacao) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[10.359115] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid MovimentacaoVMX::control_loop()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[10.359683] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:208:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcinematica_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[10.360021] (movimentacao) StderrLine: {'line': b'  208 |             \x1b[01;31m\x1b[Kcinematica_\x1b[m\x1b[K.getRobotVelocity(v1, v2, v3, v4, vx_calc, vy_calc, vth_calc);\n'}
+[10.360889] (movimentacao) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[10.380850] (-) TimerEvent: {}
+[10.405749] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KMovimentacaoVMX::MovimentacaoVMX(const rclcpp::NodeOptions&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[10.407192] (movimentacao) StderrLine: {'line': b'\x1b[01m\x1b[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:323:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcinematica_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[10.408469] (movimentacao) StderrLine: {'line': b'  323 |         \x1b[01;31m\x1b[Kcinematica_\x1b[m\x1b[K.setRadius(wheel_radius, robot_radius);\n'}
+[10.409783] (movimentacao) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[10.481052] (-) TimerEvent: {}
+[10.582731] (-) TimerEvent: {}
+[10.684422] (-) TimerEvent: {}
+[10.786066] (-) TimerEvent: {}
+[10.887200] (-) TimerEvent: {}
+[10.988377] (-) TimerEvent: {}
+[11.089191] (-) TimerEvent: {}
+[11.189894] (-) TimerEvent: {}
+[11.290640] (-) TimerEvent: {}
+[11.391433] (-) TimerEvent: {}
+[11.492383] (-) TimerEvent: {}
+[11.593236] (-) TimerEvent: {}
+[11.694086] (-) TimerEvent: {}
+[11.794877] (-) TimerEvent: {}
+[11.895600] (-) TimerEvent: {}
+[11.996377] (-) TimerEvent: {}
+[12.097148] (-) TimerEvent: {}
+[12.197886] (-) TimerEvent: {}
+[12.298658] (-) TimerEvent: {}
+[12.399384] (-) TimerEvent: {}
+[12.500125] (-) TimerEvent: {}
+[12.601057] (-) TimerEvent: {}
+[12.701877] (-) TimerEvent: {}
+[12.802639] (-) TimerEvent: {}
+[12.903442] (-) TimerEvent: {}
+[13.004176] (-) TimerEvent: {}
+[13.104988] (-) TimerEvent: {}
+[13.205715] (-) TimerEvent: {}
+[13.306474] (-) TimerEvent: {}
+[13.407233] (-) TimerEvent: {}
+[13.507976] (-) TimerEvent: {}
+[13.608840] (-) TimerEvent: {}
+[13.709588] (-) TimerEvent: {}
+[13.810367] (-) TimerEvent: {}
+[13.911112] (-) TimerEvent: {}
+[14.011858] (-) TimerEvent: {}
+[14.112761] (-) TimerEvent: {}
+[14.213741] (-) TimerEvent: {}
+[14.314489] (-) TimerEvent: {}
+[14.415241] (-) TimerEvent: {}
+[14.515981] (-) TimerEvent: {}
+[14.616858] (-) TimerEvent: {}
+[14.717606] (-) TimerEvent: {}
+[14.818381] (-) TimerEvent: {}
+[14.919169] (-) TimerEvent: {}
+[15.019931] (-) TimerEvent: {}
+[15.120807] (-) TimerEvent: {}
+[15.221568] (-) TimerEvent: {}
+[15.322318] (-) TimerEvent: {}
+[15.423088] (-) TimerEvent: {}
+[15.523899] (-) TimerEvent: {}
+[15.624801] (-) TimerEvent: {}
+[15.725585] (-) TimerEvent: {}
+[15.826347] (-) TimerEvent: {}
+[15.927110] (-) TimerEvent: {}
+[16.027926] (-) TimerEvent: {}
+[16.128844] (-) TimerEvent: {}
+[16.229594] (-) TimerEvent: {}
+[16.330337] (-) TimerEvent: {}
+[16.431091] (-) TimerEvent: {}
+[16.531835] (-) TimerEvent: {}
+[16.632737] (-) TimerEvent: {}
+[16.733472] (-) TimerEvent: {}
+[16.834215] (-) TimerEvent: {}
+[16.934958] (-) TimerEvent: {}
+[17.035703] (-) TimerEvent: {}
+[17.136527] (-) TimerEvent: {}
+[17.237384] (-) TimerEvent: {}
+[17.338117] (-) TimerEvent: {}
+[17.438843] (-) TimerEvent: {}
+[17.539592] (-) TimerEvent: {}
+[17.640376] (-) TimerEvent: {}
+[17.741092] (-) TimerEvent: {}
+[17.841836] (-) TimerEvent: {}
+[17.942559] (-) TimerEvent: {}
+[18.043299] (-) TimerEvent: {}
+[18.144024] (-) TimerEvent: {}
+[18.244857] (-) TimerEvent: {}
+[18.345604] (-) TimerEvent: {}
+[18.446393] (-) TimerEvent: {}
+[18.547153] (-) TimerEvent: {}
+[18.647907] (-) TimerEvent: {}
+[18.748739] (-) TimerEvent: {}
+[18.849483] (-) TimerEvent: {}
+[18.950213] (-) TimerEvent: {}
+[19.050970] (-) TimerEvent: {}
+[19.151706] (-) TimerEvent: {}
+[19.252487] (-) TimerEvent: {}
+[19.353259] (-) TimerEvent: {}
+[19.453986] (-) TimerEvent: {}
+[19.554735] (-) TimerEvent: {}
+[19.655478] (-) TimerEvent: {}
+[19.756210] (-) TimerEvent: {}
+[19.857024] (-) TimerEvent: {}
+[19.957774] (-) TimerEvent: {}
+[20.058518] (-) TimerEvent: {}
+[20.159245] (-) TimerEvent: {}
+[20.259978] (-) TimerEvent: {}
+[20.360721] (-) TimerEvent: {}
+[20.461436] (-) TimerEvent: {}
+[20.562169] (-) TimerEvent: {}
+[20.662927] (-) TimerEvent: {}
+[20.763689] (-) TimerEvent: {}
+[20.864512] (-) TimerEvent: {}
+[20.965343] (-) TimerEvent: {}
+[21.066028] (-) TimerEvent: {}
+[21.166684] (-) TimerEvent: {}
+[21.267367] (-) TimerEvent: {}
+[21.368037] (-) TimerEvent: {}
+[21.468733] (-) TimerEvent: {}
+[21.569474] (-) TimerEvent: {}
+[21.670194] (-) TimerEvent: {}
+[21.770953] (-) TimerEvent: {}
+[21.871718] (-) TimerEvent: {}
+[21.972502] (-) TimerEvent: {}
+[22.073239] (-) TimerEvent: {}
+[22.174026] (-) TimerEvent: {}
+[22.274850] (-) TimerEvent: {}
+[22.375606] (-) TimerEvent: {}
+[22.476471] (-) TimerEvent: {}
+[22.577422] (-) TimerEvent: {}
+[22.678313] (-) TimerEvent: {}
+[22.779718] (-) TimerEvent: {}
+[22.804813] (movimentacao) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/movimentacao.dir/build.make:76: CMakeFiles/movimentacao.dir/src/movimentacao.cpp.o] Error 1\n'}
+[22.805637] (movimentacao) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/movimentacao.dir/all] Error 2\n'}
+[22.806738] (movimentacao) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[22.812157] (movimentacao) CommandEnded: {'returncode': 2}
+[22.879882] (-) TimerEvent: {}
+[22.933347] (movimentacao) JobEnded: {'identifier': 'movimentacao', 'rc': 2}
+[22.946282] (-) EventReactorShutdown: {}

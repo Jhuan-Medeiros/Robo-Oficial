@@ -1,0 +1,25 @@
+[0.042s] Invoking command in '/home/vmx/projeto/build/movimentacao': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/vmx/projeto/build/movimentacao -- -j4 -l4
+[0.182s] [35m[1mConsolidate compiler generated dependencies of target movimentacao[0m
+[0.269s] [ 50%] [32mBuilding CXX object CMakeFiles/movimentacao.dir/src/movimentacao.cpp.o[0m
+[9.744s] [01m[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:21:12:[m[K [01;31m[Kerror: [m[K‘[01m[Kstd::placehoalders[m[K’ has not been declared
+[9.745s]    21 | using std::[01;31m[Kplacehoalders[m[K::_1;
+[9.745s]       |            [01;31m[K^~~~~~~~~~~~~[m[K
+[10.173s] [01m[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:[m[K In constructor ‘[01m[KMovimentacaoVMX::MovimentacaoVMX(const rclcpp::NodeOptions&)[m[K’:
+[10.175s] [01m[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:338:80:[m[K [01;31m[Kerror: [m[K‘[01m[K_1[m[K’ was not declared in this scope; did you mean ‘[01m[Kstd::placeholders::_1[m[K’?
+[10.176s]   338 |             "cmd_vel", 10, std::bind(&MovimentacaoVMX::cmd_vel_callback, this, [01;31m[K_1[m[K));
+[10.177s]       |                                                                                [01;31m[K^~[m[K
+[10.177s]       |                                                                                [32m[Kstd::placeholders::_1[m[K
+[10.178s] In file included from [01m[K/usr/include/c++/11/pstl/glue_algorithm_defs.h:13[m[K,
+[10.180s]                  from [01m[K/usr/include/c++/11/algorithm:74[m[K,
+[10.181s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:18[m[K,
+[10.182s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[10.184s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[10.186s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[10.188s]                  from [01m[K/home/vmx/projeto/src/movimentacao/src/movimentacao.cpp:1[m[K:
+[10.189s] [01m[K/usr/include/c++/11/functional:225:34:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::placeholders::_1[m[K’ declared here
+[10.189s]   225 |     extern const _Placeholder<1> [01;36m[K_1[m[K;
+[10.189s]       |                                  [01;36m[K^~[m[K
+[13.923s] gmake[2]: *** [CMakeFiles/movimentacao.dir/build.make:76: CMakeFiles/movimentacao.dir/src/movimentacao.cpp.o] Error 1
+[13.924s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/movimentacao.dir/all] Error 2
+[13.925s] gmake: *** [Makefile:146: all] Error 2
+[13.930s] Invoked command in '/home/vmx/projeto/build/movimentacao' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/vmx/projeto/build/movimentacao -- -j4 -l4

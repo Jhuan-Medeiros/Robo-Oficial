@@ -1,0 +1,6 @@
+Invoking command in '/home/vmx/projeto/build/movimentacao': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/vmx/projeto/src/movimentacao -DCMAKE_INSTALL_PREFIX=/home/vmx/projeto/install/movimentacao
+Invoked command in '/home/vmx/projeto/build/movimentacao' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/vmx/projeto/src/movimentacao -DCMAKE_INSTALL_PREFIX=/home/vmx/projeto/install/movimentacao
+Invoking command in '/home/vmx/projeto/build/movimentacao': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/vmx/projeto/build/movimentacao -- -j4 -l4
+Invoked command in '/home/vmx/projeto/build/movimentacao' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/vmx/projeto/build/movimentacao -- -j4 -l4
+Invoking command in '/home/vmx/projeto/build/movimentacao': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/vmx/projeto/build/movimentacao
+Invoked command in '/home/vmx/projeto/build/movimentacao' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/vmx/projeto/build/movimentacao

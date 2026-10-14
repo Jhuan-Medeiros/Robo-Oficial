@@ -1,0 +1,23 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/movimentacao.dir/src/movimentacao.cpp.o[0m
+[100%] [32m[1mLinking CXX executable movimentacao[0m
+[100%] Built target movimentacao
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/lib/movimentacao/movimentacao
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/launch/movimentacao.launch.py
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/config/params.yaml
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/ament_index/resource_index/package_run_dependencies/movimentacao
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/ament_index/resource_index/parent_prefix_path/movimentacao
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/environment/path.sh
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/environment/path.dsv
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/local_setup.bash
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/local_setup.sh
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/local_setup.zsh
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/local_setup.dsv
+-- Symlinking: /home/vmx/projeto/install/movimentacao/share/movimentacao/package.dsv
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/ament_index/resource_index/packages/movimentacao
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/cmake/movimentacaoConfig.cmake
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/cmake/movimentacaoConfig-version.cmake
+-- Up-to-date symlink: /home/vmx/projeto/install/movimentacao/share/movimentacao/package.xml

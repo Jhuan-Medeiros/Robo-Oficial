@@ -1,0 +1,8 @@
+source;share/movimentacao/hook/cmake_prefix_path.ps1
+source;share/movimentacao/hook/cmake_prefix_path.dsv
+source;share/movimentacao/hook/cmake_prefix_path.sh
+source;share/movimentacao/local_setup.bash
+source;share/movimentacao/local_setup.dsv
+source;share/movimentacao/local_setup.ps1
+source;share/movimentacao/local_setup.sh
+source;share/movimentacao/local_setup.zsh
