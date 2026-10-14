@@ -1,1 +1,0 @@
-/home/vmx/projeto/build/movimentacao/ament_cmake_environment_hooks/local_setup.zsh

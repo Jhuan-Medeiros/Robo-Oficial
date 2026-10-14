@@ -1,1 +1,0 @@
-/home/vmx/projeto/src/movimentacao/launch/movimentacao.launch.py

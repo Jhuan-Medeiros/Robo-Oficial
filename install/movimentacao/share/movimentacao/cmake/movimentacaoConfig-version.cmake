@@ -1,1 +1,0 @@
-/home/vmx/projeto/build/movimentacao/ament_cmake_core/movimentacaoConfig-version.cmake
