@@ -15,43 +15,69 @@ control_server:
         m_0:
           encoder_mode: "quadrature"
           cpr: 1440
-          dist_per_tick: 13.5236
+          dist_per_tick: 0.0006434
           invert_motor: false
           invert_encoder: false
           invert_rpm: false
         m_1:
           encoder_mode: "quadrature"
           cpr: 1440
-          dist_per_tick: 13.5236
+          dist_per_tick: 0.0006434
           invert_motor: false
           invert_encoder: false
           invert_rpm: false
         m_2:
           encoder_mode: "quadrature"
           cpr: 1440
-          dist_per_tick: 13.5236
+          dist_per_tick: 0.0006434
           invert_motor: false
           invert_encoder: false
           invert_rpm: false
         m_3:
           encoder_mode: "quadrature"
           cpr: 1440
-          dist_per_tick: 13.5236
+          dist_per_tick: 0.0006434
           invert_motor: false
           invert_encoder: false
           invert_rpm: false
 
     servo:
       enabled: true
-      sensors: ["servo0"]
+      sensors: ["servo0", "servo1", "servo2"]
       servo0:
+        port: 12
+        type: "standard"
+      servo1:
+        port: 13
+        type: "standard"
+      servo2:
         port: 14
         type: "standard"
 
 no_movimentacao:
   ros__parameters:
-    fator_linear: -83.59 
-    fator_angular: 100.0
+    fator_linear: 1.0 
+    fator_angular: -1.0
+
+ydlidar_ros2_driver_node:
+  ros__parameters:
+    port: "/dev/ydlidar"
+    baudrate: 230400
+    frame_id: "laser_frame"
+    topic_name: "scan"
+    isSingleChannel: false
+    support_motor_dtr: true
+    fixed_resolution: true
+    scan_queue_size: 1
+    angle_max: 180.0
+    angle_min: -180.0
+    range_max: 12.0
+    range_min: 0.12
+    frequency: 10.0
+    invalid_range_is_inf: true
+    sample_rate: 3
+    lidar_type: 1
+    device_type: 0
 
 slam_toolbox:
   ros__parameters:
@@ -61,13 +87,16 @@ slam_toolbox:
     scan_topic: /scan
 
     mode: mapping
-    solver_plugin: solver_plugins::CeresSolver
-    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
-    ceres_preconditioner: SCHUR_JACOBI
-    ceres_trust_region_strategy: LEVENBERG_MARQUARDT
 
-    map_resolution: 0.05
+    resolution: 0.05
+    min_laser_range: 0.2
     max_laser_range: 12.0
     minimum_time_interval: 0.5
-    transform_timeout: 0.2
-    tf_buffer_duration: 30
+    transform_timeout: 0.5
+    tf_buffer_duration: 30.0
+
+    minimum_travel_distance: 0.05
+    minimum_travel_heading: 0.05
+
+    map_update_interval: 1.0
+    transform_publish_period: 0.02

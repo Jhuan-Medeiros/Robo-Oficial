@@ -14,6 +14,8 @@ public:
     MotorConfig motor3;
     MotorConfig motor4;
 
+    TitanQuad() = default;
+
     void setCmdInversions(double inv1, double inv2, double inv3, double inv4) {
         motor1.cmd_inversion = inv1;
         motor2.cmd_inversion = inv2;
@@ -36,4 +38,4 @@ public:
     }
 };
 
-#endif 
+#endif

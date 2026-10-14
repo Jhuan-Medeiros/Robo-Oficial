@@ -1,63 +1,50 @@
-#ifndef XDRIVE_H
-#define XDRIVE_H
+#ifndef MOVIMENTACAO_XDRIVE_H
+#define MOVIMENTACAO_XDRIVE_H
 
 #include <cmath>
-#include "Constants.h"
-#include "TitanQuad.h"
 
-class XDrive {
+class XDrive
+{
 private:
-    double wheel_radius_;
-    double robot_radius_;
-    TitanQuad titan_config_;
+    double wheel_radius_ = 0.05;
+    double robot_radius_ = 0.15;
 
 public:
-    XDrive(double wheel_radius = Constants::WHEEL_RADIUS, double robot_radius = Constants::ROBOT_RADIUS)
-    : wheel_radius_(wheel_radius), robot_radius_(robot_radius) {}
+    XDrive() = default;
 
-    void setRadius(double wheel_radius, double robot_radius) {
-        wheel_radius_ = wheel_radius;
-        robot_radius_ = robot_radius;
+    void setRadius(double wheel_r, double robot_r)
+    {
+        wheel_radius_ = wheel_r;
+        robot_radius_ = robot_r;
     }
 
-    void setCmdInversions(double inv1, double inv2, double inv3, double inv4) {
-        titan_config_.setCmdInversions(inv1, inv2, inv3, inv4);
+    void getMotorSpeeds(double vx, double vy, double vth,
+                        double &rpm0, double &rpm1, double &rpm2, double &rpm3)
+    {
+        const double sqrt3_2 = std::sqrt(3.0) / 2.0;
+
+        double v0 = -sqrt3_2 * vx + 0.5 * vy + robot_radius_ * vth;
+        double v1 =  sqrt3_2 * vx + 0.5 * vy + robot_radius_ * vth;
+        double v2 = -1.0 * vy + robot_radius_ * vth;
+
+        const double mps_to_rpm = 60.0 / (2.0 * M_PI * wheel_radius_);
+
+        rpm0 = v0 * mps_to_rpm;
+        rpm1 = v1 * mps_to_rpm;
+        rpm2 = v2 * mps_to_rpm;
+        rpm3 = 0.0;
     }
 
-    void setEncInversions(double inv1, double inv2, double inv3, double inv4) {
-        titan_config_.setEncInversions(inv1, inv2, inv3, inv4);
-    }
+    void getRobotVelocity(double v0, double v1, double v2, double v3,
+                          double &vx, double &vy, double &vth)
+    {
+        (void)v3;
+        const double sqrt3 = std::sqrt(3.0);
 
-    void setGains(double g1, double g2, double g3, double g4) {
-        titan_config_.setGains(g1, g2, g3, g4);
-    }
-
-    void Drive(double vx, double vy, double vth, double &rpm1, double &rpm2, double &rpm3, double &rpm4) {
-        double sqrt2_2 = std::sqrt(2.0) / 2.0;
-
-        double v1_lin = sqrt2_2 * (vx - vy) + (robot_radius_ * vth);
-        double v2_lin = sqrt2_2 * (vx + vy) + (robot_radius_ * vth);
-        double v3_lin = sqrt2_2 * (-vx + vy) + (robot_radius_ * vth);
-        double v4_lin = sqrt2_2 * (-vx - vy) + (robot_radius_ * vth);
-
-        rpm1 = (v1_lin / (2.0 * M_PI * wheel_radius_)) * 60.0 * titan_config_.motor1.cmd_inversion * titan_config_.motor1.gain;
-        rpm2 = (v2_lin / (2.0 * M_PI * wheel_radius_)) * 60.0 * titan_config_.motor2.cmd_inversion * titan_config_.motor2.gain;
-        rpm3 = (v3_lin / (2.0 * M_PI * wheel_radius_)) * 60.0 * titan_config_.motor3.cmd_inversion * titan_config_.motor3.gain;
-        rpm4 = (v4_lin / (2.0 * M_PI * wheel_radius_)) * 60.0 * titan_config_.motor4.cmd_inversion * titan_config_.motor4.gain;
-    }
-
-    void getRobotVelocity(double w1, double w2, double w3, double w4, double &vx, double &vy, double &vth) {
-        double v1 = (w1 * titan_config_.motor1.enc_inversion) * wheel_radius_;
-        double v2 = (w2 * titan_config_.motor2.enc_inversion) * wheel_radius_;
-        double v3 = (w3 * titan_config_.motor3.enc_inversion) * wheel_radius_;
-        double v4 = (w4 * titan_config_.motor4.enc_inversion) * wheel_radius_;
-
-        double sqrt2_4 = std::sqrt(2.0) / 4.0;
-
-        vx = sqrt2_4 * (v1 + v2 - v3 - v4);
-        vy = sqrt2_4 * (-v1 + v2 + v3 - v4);
-        vth = (1.0 / (4.0 * robot_radius_)) * (v1 + v2 + v3 + v4);
+        vx  = (v1 - v0) / sqrt3;
+        vy  = (v0 + v1 - 2.0 * v2) / 3.0;
+        vth = (v0 + v1 + v2) / (3.0 * robot_radius_);
     }
 };
 
-#endif
+#endif // MOVIMENTACAO_XDRIVE_H

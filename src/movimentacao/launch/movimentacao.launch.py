@@ -1,81 +1,68 @@
 import os
-from ament_index_python.packages import get_package_share_directory
+from ament_index_python.packages import get_package_share_directory, get_package_prefix
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
-from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.actions import ExecuteProcess, TimerAction
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    pkg_movimentacao = get_package_share_directory('movimentacao')
-    yaml_config = os.path.join(pkg_movimentacao, 'config', 'params.yaml')
+    pkg_share = get_package_share_directory('movimentacao')
+    params_file = os.path.join(pkg_share, 'config', 'params.yaml')
 
-    studica_launch_dir = os.path.join(
-        get_package_share_directory('studica_control'),
-        'launch'
-    )
+    studica_prefix = get_package_prefix('studica_control')
+    studica_exec = os.path.join(studica_prefix, 'lib', 'studica_control', 'manual_composition')
 
-    slam_toolbox_launch_dir = os.path.join(
-        get_package_share_directory('slam_toolbox'),
-        'launch'
-    )
-
-    include_studica = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(studica_launch_dir, 'studica_launch.py')
-        ),
-        launch_arguments={'setting_file': yaml_config}.items()
-    )
-
-    node_ydlidar = Node(
+    ydlidar_node = Node(
         package='ydlidar_ros2_driver',
         executable='ydlidar_ros2_driver_node',
         name='ydlidar_ros2_driver_node',
         output='screen',
-        emulate_tty=True,
-        parameters=[{
-            'port': '/dev/ydlidar',
-            'baudrate': 230400,
-            'frame_id': 'laser_frame',
-            'ignore_array': '',
-            'range_min': 0.20,
-            'range_max': 12.0,
-            'frequency': 10.0,
-            'is_single_channel': False,
-            'intensity': False,
-            'support_motor_dtr': True,
-            'invalid_range_is_inf': True,
-        }]
+        parameters=[params_file]
     )
 
     static_tf_laser = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='static_tf_pub_laser',
-        arguments=['--x', '0.1', '--y', '0.0', '--z', '0.15', '--frame-id', 'base_link', '--child-frame-id', 'laser_frame']
+        arguments=['0.10', '0.0', '0.15', '0.0', '0.0', '0.0', 'base_link', 'laser_frame'],
+        output='screen'
     )
 
-    node_movimentacao = Node(
+    slam_node = Node(
+        package='slam_toolbox',
+        executable='async_slam_toolbox_node',
+        name='slam_toolbox',
+        output='screen',
+        parameters=[params_file]
+    )
+
+    # Inicia o SLAM 4 segundos depois para o YDLidar ja estar estabilizado em 10Hz
+    delayed_slam = TimerAction(
+        period=4.0,
+        actions=[slam_node]
+    )
+
+    base_control_node = Node(
         package='movimentacao',
         executable='movimentacao',
         name='no_movimentacao',
         output='screen',
-        parameters=[yaml_config] 
+        parameters=[params_file]
     )
 
-    include_slam = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(slam_toolbox_launch_dir, 'online_async_launch.py')
-        ),
-        launch_arguments={
-            'use_sim_time': 'false',
-            'slam_params_file': yaml_config
-        }.items()
+    studica_control_node = ExecuteProcess(
+        cmd=[
+            'sudo', '-E', studica_exec,
+            '--ros-args',
+            '-r', '__node:=control_server',
+            '--params-file', params_file,
+        ],
+        output='screen',
     )
 
     return LaunchDescription([
-        include_studica,
-        node_ydlidar,
+        ydlidar_node,
         static_tf_laser,
-        node_movimentacao,
-        include_slam
+        base_control_node,
+        studica_control_node,
+        delayed_slam
     ])
