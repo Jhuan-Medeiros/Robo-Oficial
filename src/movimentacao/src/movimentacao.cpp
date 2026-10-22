@@ -30,36 +30,34 @@ public:
         robot_radius_ = robot_r;
     }
 
-    // Cinemática Inversa: (vx, vy, vth) -> RPM dos motores (m0, m1, m2, m3)
-    // Configuração padrão Kiwi:
-    // m0: Frente-Esquerda (60°), m1: Frente-Direita (-60°), m2: Traseira (180°), m3: 0.0 (Reserva)
+    // Cinemática Inversa (Invertido o eixo X para o robô andar para trás com comando para frente)
     void getMotorSpeeds(double vx, double vy, double vth,
                         double &rpm0, double &rpm1, double &rpm2, double &rpm3)
     {
-        const double sqrt3_2 = std::sqrt(3.0) / 2.0; // ~0.866025
+        const double sqrt3_2 = std::sqrt(3.0) / 2.0;
 
-        // Velocidade linear tangencial em cada roda (m/s)
-        double v0 = -sqrt3_2 * vx + 0.5 * vy + robot_radius_ * vth;
-        double v1 =  sqrt3_2 * vx + 0.5 * vy + robot_radius_ * vth;
-        double v2 =  0.0     * vx - 1.0 * vy + robot_radius_ * vth;
+        // Adicionado o sinal de menos (-) no vx para inverter o sentido de avanço
+        double v0 =  sqrt3_2 * (-vx) + 0.5 * vy + robot_radius_ * vth;
+        double v1 = -sqrt3_2 * (-vx) + 0.5 * vy + robot_radius_ * vth;
+        double v2 =  0.0     * (-vx) - 1.0 * vy + robot_radius_ * vth;
 
-        // Conversão de m/s para RPM: (v / (2 * pi * r)) * 60
         const double mps_to_rpm = 60.0 / (2.0 * M_PI * wheel_radius_);
 
         rpm0 = v0 * mps_to_rpm;
         rpm1 = v1 * mps_to_rpm;
         rpm2 = v2 * mps_to_rpm;
-        rpm3 = 0.0; // Quarto motor mantido na estrutura, mas parado
+        rpm3 = 0.0;
     }
 
-    // Cinemática Direta: Velocidade linear das rodas (m/s) -> (vx, vy, vth) do robô
+    // Cinemática Direta (Invertido o vx correspondente aos encoders)
     void getRobotVelocity(double v0, double v1, double v2, double v3,
                           double &vx, double &vy, double &vth)
     {
-        (void)v3; // Ignora a leitura do quarto encoder na odometria Kiwi
+        (void)v3;
         const double sqrt3 = std::sqrt(3.0);
 
-        vx  = (v1 - v0) / sqrt3;
+        // Adicionado o sinal de menos (-) para que a odometria acompanhe o novo sentido
+        vx  = -((v0 - v1) / sqrt3);
         vy  = (v0 + v1 - 2.0 * v2) / 3.0;
         vth = (v0 + v1 + v2) / (3.0 * robot_radius_);
     }
