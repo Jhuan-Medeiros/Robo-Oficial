@@ -1,0 +1,218 @@
+control_server:
+  ros__parameters:
+    use_sim_time: false
+    imu:
+      enabled: true
+      name: "imu"
+      topic: "imu"
+      frame_id: "imu_link"
+    titan:
+      enabled: true
+      sensors: ["titan"]
+      titan:
+        can_id: 42
+        motor_freq: 15600
+        encoder_rate_hz: 50
+        motor_update_rate_hz: 50
+        limit_switches: true
+        enable_freshness: false
+        m_0:
+          encoder_mode: "quadrature"
+          cpr: 1464
+          dist_per_tick: 0.00021459
+          invert_motor: false
+          invert_encoder: false
+          invert_rpm: false
+        m_1:
+          encoder_mode: "quadrature"
+          cpr: 1464
+          dist_per_tick: 0.00021459
+          invert_motor: false
+          invert_encoder: false
+          invert_rpm: false
+        m_2:
+          encoder_mode: "quadrature"
+          cpr: 1464
+          dist_per_tick: 0.00021459
+          invert_motor: false
+          invert_encoder: false
+          invert_rpm: false
+        m_3:
+          encoder_mode: "quadrature"
+          cpr: 1464
+          dist_per_tick: 0.00021459
+          invert_motor: false
+          invert_encoder: false
+          invert_rpm: false
+
+    servo:
+      enabled: true
+      sensors: ["servo0", "servo1", "servo2"]
+      servo0:
+        port: 12
+        type: "standard"
+      servo1:
+        port: 13
+        type: "standard"
+      servo2:
+        port: 14
+        type: "standard"
+
+no_movimentacao:
+  ros__parameters:
+    wheel_radius: 0.0500
+    robot_radius: 0.2000
+    fator_linear: 1.0
+    fator_angular: 1.0
+    publish_tf: false
+
+ekf_filter_node:
+  ros__parameters:
+    use_sim_time: false
+    frequency: 30.0
+    sensor_timeout: 0.1
+    two_d_mode: true
+    transform_time_offset: 0.03
+    transform_timeout: 0.0
+    print_diagnostics: true
+    publish_tf: true
+    publish_acceleration: false
+
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_link
+    world_frame: odom
+
+    odom0: /wheel/odom
+    odom0_config: [false, false, false,
+                   false, false, false,
+                   true,  true,  false,
+                   false, false, false,
+                   false, false, false]
+    odom0_queue_size: 10
+    odom0_differential: false
+    odom0_relative: false
+
+    imu0: /imu
+    imu0_config: [false, false, false,
+                  false, false, true,
+                  false, false, false,
+                  false, false, true,
+                  false, false, false]
+    imu0_queue_size: 10
+    imu0_differential: false
+    imu0_relative: true
+    imu0_remove_gravitational_acceleration: true
+
+ydlidar_ros2_driver_node:
+  ros__parameters:
+    port: "/dev/ydlidar"
+    frame_id: "laser_frame"
+    ignore_array: ""
+    baudrate: 230400
+    lidar_type: 1
+    device_type: 0
+    sample_rate: 4
+    abnormal_check_count: 4
+    fixed_resolution: false
+    reversion: false
+    inverted: false
+    auto_reconnect: true
+    isSingleChannel: false
+    intensity: true
+    support_motor_dtr: true
+    invalid_range_is_inf: true
+    point_cloud_preservative: false
+    angle_min: -180.0
+    angle_max: 180.0
+    range_min: 0.20
+    range_max: 12.0
+    frequency: 10.0
+
+slam_toolbox:
+  ros__parameters:
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_region_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: HuberLoss
+
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_link
+    scan_topic: /scan
+    use_map_saver: true
+    mode: mapping
+
+    debug_logging: false
+    throttle_scans: 1
+    transform_publish_period: 0.02
+    map_update_interval: 0.3
+    resolution: 0.03
+    
+    min_laser_range: 0.25     
+    max_laser_range: 8.0      
+    
+    minimum_time_interval: 0.05
+    transform_timeout: 1.0
+    tf_buffer_duration: 30.0
+    stack_size_to_use: 40000000
+    enable_interactive_mode: true
+
+    use_scan_matching: true
+    use_scan_barycenter: true
+    minimum_travel_distance: 0.02
+    minimum_travel_heading: 0.02 
+    scan_buffer_size: 20         
+    scan_buffer_maximum_scan_distance: 8.0
+    
+    link_match_minimum_response_fine: 0.12
+    link_scan_maximum_distance: 1.5
+    loop_search_maximum_distance: 3.0
+    do_loop_closing: true
+    loop_match_minimum_chain_size: 10
+    loop_match_maximum_variance_coarse: 3.0
+    loop_match_minimum_response_coarse: 0.35
+    loop_match_minimum_response_fine: 0.45
+
+    correlation_search_space_dimension: 0.6
+    correlation_search_space_resolution: 0.01
+    correlation_search_space_smear_deviation: 0.03
+
+    loop_search_space_dimension: 8.0
+    loop_search_space_resolution: 0.05
+    loop_search_space_smear_deviation: 0.03
+
+    distance_variance_penalty: 0.1
+    angle_variance_penalty: 0.1
+    fine_search_angle_offset: 0.00349
+    coarse_search_angle_offset: 0.523
+    coarse_angle_resolution: 0.0349
+    minimum_angle_penalty: 0.5
+    minimum_distance_penalty: 0.3
+    use_response_expansion: true
+
+oms_node:
+  ros__parameters:
+    garra_aberta: 40.0
+    pulso_baixo: 45.0
+    pulso_reto: 90.0
+    pulso_cima: 135.0
+    extensor_parado: 90.0
+    extensor_frente: 140.0
+    extensor_tras: 40.0
+    tempo_extensor_ms: 1000
+    distancia_pegar: 0.30
+
+    objeto_chao_altura_ticks: 0
+    objeto_chao_garra_fechada: 130.0
+    objeto_chao_vel_motor: -0.4
+
+    objeto_andar1_altura_ticks: 500
+    objeto_andar1_garra_fechada: 120.0
+    objeto_andar1_vel_motor: 0.4
+
+    objeto_andar2_altura_ticks: 1200
+    objeto_andar2_garra_fechada: 110.0
+    objeto_andar2_vel_motor: 0.4

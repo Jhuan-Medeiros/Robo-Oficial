@@ -23,9 +23,10 @@ public:
     {
         const double sqrt3_2 = std::sqrt(3.0) / 2.0;
 
-        double v0 = -sqrt3_2 * vx + 0.5 * vy + robot_radius_ * vth;
-        double v1 =  sqrt3_2 * vx + 0.5 * vy + robot_radius_ * vth;
-        double v2 = -1.0 * vy + robot_radius_ * vth;
+        // Invertido o vx aqui também
+        double v0 =  sqrt3_2 * (-vx) + 0.5 * vy + robot_radius_ * vth;
+        double v1 = -sqrt3_2 * (-vx) + 0.5 * vy + robot_radius_ * vth;
+        double v2 =  0.0     * (-vx) - 1.0 * vy + robot_radius_ * vth;
 
         const double mps_to_rpm = 60.0 / (2.0 * M_PI * wheel_radius_);
 
@@ -41,7 +42,8 @@ public:
         (void)v3;
         const double sqrt3 = std::sqrt(3.0);
 
-        vx  = (v1 - v0) / sqrt3;
+        // Invertido o vx correspondente na odometria
+        vx  = -((v0 - v1) / sqrt3);
         vy  = (v0 + v1 - 2.0 * v2) / 3.0;
         vth = (v0 + v1 + v2) / (3.0 * robot_radius_);
     }

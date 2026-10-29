@@ -4,7 +4,7 @@
 #include <cmath>
 
 namespace Constants {
-    constexpr double WHEEL_RADIUS = 0.0508;
+    constexpr double WHEEL_RADIUS = 0.050;
     constexpr double ROBOT_RADIUS = 0.2000;
     constexpr double MAX_RPM = 100.0;
 
