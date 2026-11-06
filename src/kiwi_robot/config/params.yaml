@@ -15,28 +15,28 @@ control_server:
           encoder_mode: "quadrature"
           cpr: 1464
           dist_per_tick: 0.00021459
-          invert_motor: false
+          invert_motor: true
           invert_encoder: false
           invert_rpm: false
         m_1:
           encoder_mode: "quadrature"
           cpr: 1464
           dist_per_tick: 0.00021459
-          invert_motor: false
+          invert_motor: true
           invert_encoder: false
           invert_rpm: false
         m_2:
           encoder_mode: "quadrature"
           cpr: 1464
           dist_per_tick: 0.00021459
-          invert_motor: false
+          invert_motor: true
           invert_encoder: false
           invert_rpm: false
         m_3:
           encoder_mode: "quadrature"
           cpr: 1464
           dist_per_tick: 0.00021459
-          invert_motor: false
+          invert_motor: true
           invert_encoder: false
           invert_rpm: false
 
@@ -44,20 +44,20 @@ control_server:
       enabled: true
       sensors: ["servo0", "servo1", "servo2"]
       servo0:
-        port: 12
+        port: 12 # avanço
         type: "standard"
       servo1:
-        port: 13
+        port: 13 # fechar/abrir
         type: "standard"
       servo2:
-        port: 14
+        port: 14 # cima e baixo (pulso)
         type: "standard"
 
 no_movimentacao:
   ros__parameters:
     wheel_radius: 0.0500
     robot_radius: 0.2000
-    fator_linear: 1.0
+    fator_linear: -1.0
     fator_angular: 1.0
     publish_tf: true
 

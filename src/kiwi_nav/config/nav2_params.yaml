@@ -65,7 +65,7 @@ controller_server:
     controller_frequency: 20.0
     min_x_velocity_threshold: 0.001
     min_y_velocity_threshold: 0.001
-    min_theta_velocity_threshold: 0.001
+    min_theta_velocity_threshold: 0.05
     failure_tolerance: 0.3
     progress_checker_plugin: "progress_checker"
     goal_checker_plugins: ["general_goal_checker"]
@@ -73,26 +73,26 @@ controller_server:
 
     progress_checker:
       plugin: "nav2_controller::SimpleProgressChecker"
-      required_movement_radius: 0.10
-      movement_time_allowance:3.0
+      required_movement_radius: 0.05
+      movement_time_allowance: 5.0
 
     general_goal_checker:
       stateful: true
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.10
-      yaw_goal_tolerance: 0.25
+      xy_goal_tolerance: 0.12
+      yaw_goal_tolerance: 0.50
 
     FollowPath:
       plugin: "dwb_core::DWBLocalPlanner"
       debug_trajectory_details: false
       min_vel_x: -0.15
-      min_vel_y: -0.30
-      max_vel_x: 0.30
-      max_vel_y: 0.30
+      min_vel_y: -0.20
+      max_vel_x: 0.50
+      max_vel_y: 0.50
       max_vel_theta: 1.2
-      min_speed_xy: 0.0
-      max_speed_xy: 0.25
-      min_speed_theta: 0.0
+      min_speed_xy: 0.12
+      max_speed_xy: 0.50
+      min_speed_theta: 0.20
       acc_lim_x: 1.5
       acc_lim_y: 1.5
       acc_lim_theta: 2.5
@@ -104,9 +104,9 @@ controller_server:
       vtheta_samples: 12
       sim_time: 0.8
       linear_granularity: 0.05
-      angular_granularity: 0.05
+      angular_granularity: 0.2
       transform_tolerance: 0.5
-      xy_goal_tolerance: 0.10
+      xy_goal_tolerance: 0.12
       trans_stopped_velocity: 0.15
       short_circuit_trajectory_evaluation: true
       stateful: true
@@ -118,15 +118,15 @@ controller_server:
       GoalAlign.forward_point_distance: 0.1
       PathDist.scale: 32.0
       GoalDist.scale: 24.0
-      RotateToGoal.scale: 40.0
-      RotateToGoal.slowing_factor: 5.0
+      RotateToGoal.scale: 15.0
+      RotateToGoal.slowing_factor: 2.0
       RotateToGoal.lookahead_time: -1.0
       Twirling.scale: 10.0
 
 local_costmap:
   local_costmap:
     ros__parameters:
-      update_frequency: 5.0
+      update_frequency: 3.0
       publish_frequency: 2.0
       global_frame: odom
       robot_base_frame: base_link
@@ -134,8 +134,9 @@ local_costmap:
       rolling_window: true
       width: 3
       height: 3
-      resolution: 0.03
-      robot_radius: 0.245
+      resolution: 0.05
+      # Substituído por footprint retangular para cobrir a garra centralizada à frente
+      footprint: "[ [0.32, 0.22], [0.32, -0.22], [-0.18, -0.18], [-0.18, 0.18] ]"
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
@@ -153,8 +154,8 @@ local_costmap:
           obstacle_min_range: 0.26
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 6.0
-        inflation_radius: 0.32
+        cost_scaling_factor: 40.0
+        inflation_radius: 0.26        # Corrigido: maior que o footprint para sumir o erro do log
       always_send_full_costmap: false
 
 global_costmap:
@@ -165,8 +166,8 @@ global_costmap:
       global_frame: map
       robot_base_frame: base_link
       use_sim_time: false
-      robot_radius: 0.245
-      resolution: 0.03
+      footprint: "[ [0.32, 0.18], [0.32, -0.18], [-0.18, -0.18], [-0.18, 0.18] ]"
+      resolution: 0.05
       track_unknown_space: true
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
       static_layer:
@@ -183,13 +184,13 @@ global_costmap:
           marking: true
           data_type: "LaserScan"
           raytrace_max_range: 8.0
-          raytrace_min_range: 0.20
+          raytrace_min_range: 0.28
           obstacle_max_range: 7.5
-          obstacle_min_range: 0.22
+          obstacle_min_range: 0.28
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.35
+        cost_scaling_factor: 40.0
+        inflation_radius: 0.26        # Corrigido: maior que o footprint
       always_send_full_costmap: false
 
 map_server:
@@ -199,7 +200,7 @@ map_server:
 
 planner_server:
   ros__parameters:
-    expected_planner_frequency: 10.0
+    expected_planner_frequency: 2.0
     use_sim_time: false
     planner_plugins: ["GridBased"]
     GridBased:

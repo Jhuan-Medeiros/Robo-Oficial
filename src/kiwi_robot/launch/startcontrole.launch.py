@@ -8,7 +8,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     pkg_kiwi = get_package_share_directory('kiwi_robot')
-    yaml_config = os.path.join(pkg_kiwi, 'config', 'params.yaml')
+    yaml_config = "/home/vmx/projeto/src/kiwi_robot/config/params.yaml"
 
     slam_toolbox_launch_dir = os.path.join(
         get_package_share_directory('slam_toolbox'),

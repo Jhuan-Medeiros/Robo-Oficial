@@ -155,7 +155,7 @@ private:
         }
 
         double dx_body = 0.0, dy_body = 0.0, dth = 0.0;
-        kinematics_.forwardKinematics(raw_d[0], raw_d[1], raw_d[2], dx_body, dy_body, dth);
+        kinematics_.forwardKinematics(raw_d[0], raw_d[2], raw_d[3], dx_body, dy_body, dth);
 
         dx_body *= fator_linear_;
         dy_body *= fator_linear_;
@@ -204,8 +204,8 @@ public:
             "cmd_vel", 10, std::bind(&KiwiNode::cmd_vel_callback, this, _1));
 
         mot_pub_[0] = this->create_publisher<std_msgs::msg::Float64>(Constants::MOTOR0_CMD_TOPIC, 10);
-        mot_pub_[1] = this->create_publisher<std_msgs::msg::Float64>(Constants::MOTOR1_CMD_TOPIC, 10);
-        mot_pub_[2] = this->create_publisher<std_msgs::msg::Float64>(Constants::MOTOR2_CMD_TOPIC, 10);
+        mot_pub_[1] = this->create_publisher<std_msgs::msg::Float64>(Constants::MOTOR2_CMD_TOPIC, 10);
+        mot_pub_[2] = this->create_publisher<std_msgs::msg::Float64>(Constants::MOTOR3_CMD_TOPIC, 10);
 
         const char *enc_topics[4] = {
             Constants::ENCODER0_TOPIC, Constants::ENCODER1_TOPIC,
