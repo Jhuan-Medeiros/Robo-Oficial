@@ -40,21 +40,22 @@ public:
         this->declare_parameter<double>("objeto_andar2_garra_fechada", 110.0);
         this->declare_parameter<double>("objeto_andar2_vel_motor", 0.4);
 
-        pub_extensor_ = this->create_publisher<std_msgs::msg::Float64>("/servo0/cmd", 10);
-        pub_pulso_    = this->create_publisher<std_msgs::msg::Float64>("/servo1/cmd", 10);
-        pub_garra_    = this->create_publisher<std_msgs::msg::Float64>("/servo2/cmd", 10);
-        pub_elevador_ = this->create_publisher<std_msgs::msg::Float64>("/titan/m_3/cmd", 10);
+        // Tópicos alinhados com o params.yaml e motor do elevador em m_1
+        pub_extensor_ = this->create_publisher<std_msgs::msg::Float64>("/servo0/cmd", 10); // Avanço (Porta 8)
+        pub_garra_    = this->create_publisher<std_msgs::msg::Float64>("/servo1/cmd", 10); // Abrir/Fechar
+        pub_pulso_    = this->create_publisher<std_msgs::msg::Float64>("/servo2/cmd", 10); // Pulso (Porta 10)
+        pub_elevador_ = this->create_publisher<std_msgs::msg::Float64>("/titan/m_1/cmd", 10);
         pub_cmd_vel_  = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
         pub_status_   = this->create_publisher<std_msgs::msg::String>("/oms/status", 10);
 
         sub_limit_fwd_ = this->create_subscription<std_msgs::msg::Bool>(
-            "/titan/m_3/limit_fwd", 10,
+            "/titan/m_1/limit_fwd", 10,
             [this](const std_msgs::msg::Bool::SharedPtr msg) {
                 limit_fwd_ativado_ = msg->data;
             });
         
         sub_limit_rev_ = this->create_subscription<std_msgs::msg::Bool>(
-            "/titan/m_3/limit_rev", 10,
+            "/titan/m_1/limit_rev", 10,
             [this](const std_msgs::msg::Bool::SharedPtr msg) {
                 limit_rev_ativado_ = msg->data;
             });
@@ -64,16 +65,16 @@ public:
             std::bind(&OMSNode::comandoCallback, this, std::placeholders::_1));
 
         sub_encoder_ = this->create_subscription<std_msgs::msg::Float64>(
-            "/titan/m_3/encoder", 10,
+            "/titan/m_1/encoder", 10,
             [this](const std_msgs::msg::Float64::SharedPtr msg) {
-                encoder_atual_ = static_cast<int>( std::round(msg->data / 0.00022165) );
+                encoder_atual_ = static_cast<int>( std::round(msg->data / 0.00021459) );
             });
 
         sub_scan_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
             "/scan", rclcpp::SensorDataQoS(),
             std::bind(&OMSNode::scanCallback, this, std::placeholders::_1));
 
-        RCLCPP_INFO(this->get_logger(), ">>> OMS Node Pronto (Controle + Automatico + Fim de Curso)! <<<");
+        RCLCPP_INFO(this->get_logger(), ">>> OMS Node Pronto (Servos Alinhados + Elevador em m_1)! <<<");
     }
 
 private:
@@ -92,10 +93,9 @@ private:
     void moverElevadorParaTicks(int ticks_alvo, double potencia_base) {
         rclcpp::Rate taxa(50);
         int tolerancia = 25;
-        int timeout_loops = 200; // Seguranca: max 4 segundos
+        int timeout_loops = 200; // Max 4 segundos
 
         while (rclcpp::ok() && timeout_loops-- > 0) {
-            // Trava de seguranca de fim de curso
             if ((potencia_base > 0 && limit_fwd_ativado_.load()) || 
                 (potencia_base < 0 && limit_rev_ativado_.load())) {
                 RCLCPP_WARN(this->get_logger(), "Fim de curso atingido! Parando elevador.");
@@ -141,6 +141,7 @@ private:
         std::transform(acao.begin(), acao.end(), acao.begin(), ::toupper);
         std::transform(tipo_obj.begin(), tipo_obj.end(), tipo_obj.begin(), ::toupper);
 
+        // Comandos diretos (executam na hora sem depender do elevador)
         if (acao == "ELEV_SUBIR_CONT") {
             enviarElevador(0.5);
             return;
@@ -158,6 +159,21 @@ private:
             return;
         } else if (acao == "EXT_PARAR") {
             enviarServo(pub_extensor_, this->get_parameter("extensor_parado").as_double());
+            return;
+        } else if (acao == "ABRIR") {
+            enviarServo(pub_garra_, this->get_parameter("garra_aberta").as_double());
+            return;
+        } else if (acao == "FECHAR") {
+            enviarServo(pub_garra_, this->get_parameter("objeto_chao_garra_fechada").as_double());
+            return;
+        } else if (acao == "PULSO_BAIXO") {
+            enviarServo(pub_pulso_, this->get_parameter("pulso_baixo").as_double());
+            return;
+        } else if (acao == "PULSO_RETO") {
+            enviarServo(pub_pulso_, this->get_parameter("pulso_reto").as_double());
+            return;
+        } else if (acao == "PULSO_CIMA") {
+            enviarServo(pub_pulso_, this->get_parameter("pulso_cima").as_double());
             return;
         }
 
@@ -234,17 +250,7 @@ private:
             vel_motor = this->get_parameter("objeto_andar2_vel_motor").as_double();
         }
 
-        if (acao == "ABRIR") {
-            enviarServo(pub_garra_, garra_aberta);
-        } else if (acao == "FECHAR") {
-            enviarServo(pub_garra_, garra_fechada);
-        } else if (acao == "PULSO_BAIXO") {
-            enviarServo(pub_pulso_, pulso_baixo);
-        } else if (acao == "PULSO_RETO") {
-            enviarServo(pub_pulso_, pulso_reto);
-        } else if (acao == "PULSO_CIMA") {
-            enviarServo(pub_pulso_, pulso_cima);
-        } else if (acao == "HOME") {
+        if (acao == "HOME") {
             enviarServo(pub_extensor_, ext_parado);
             enviarServo(pub_garra_, garra_aberta);
             enviarServo(pub_pulso_, pulso_cima);

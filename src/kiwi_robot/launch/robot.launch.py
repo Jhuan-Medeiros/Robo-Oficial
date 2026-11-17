@@ -1,18 +1,11 @@
 import os
-from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess, IncludeLaunchDescription
-from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.actions import ExecuteProcess, TimerAction
 from launch_ros.actions import Node
 
 
 def generate_launch_description():
     yaml_config = "/home/vmx/projeto/src/kiwi_robot/config/params.yaml"
-
-    slam_toolbox_launch_dir = os.path.join(
-        get_package_share_directory('slam_toolbox'),
-        'launch'
-    )
 
     studica_node = ExecuteProcess(
         cmd=[
@@ -34,7 +27,6 @@ def generate_launch_description():
         parameters=[yaml_config]
     )
 
-    # TF estatica do Laser: Z=10cm acima do base_link, de cabeca para baixo (roll=3.14159)
     static_tf_laser = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -59,7 +51,6 @@ def generate_launch_description():
         parameters=[yaml_config]
     )
 
-    # Inicializa o SLAM Toolbox explicitamente apontando para o params.yaml
     node_slam = Node(
         package='slam_toolbox',
         executable='async_slam_toolbox_node',
@@ -73,8 +64,8 @@ def generate_launch_description():
 
     return LaunchDescription([
         studica_node,
-        node_ydlidar,
         static_tf_laser,
-        node_kiwi,
-        node_slam
+        TimerAction(period=2.0, actions=[node_ydlidar]),
+        TimerAction(period=4.0, actions=[node_kiwi]),
+        #TimerAction(period=6.0, actions=[node_slam]),  ## Comenta esta linha quando fores usar o Nav2/AMCL!
     ])

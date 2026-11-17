@@ -19,14 +19,15 @@ public:
         robot_radius_ = robot_r;
     }
 
+    // Controla APENAS os motores na vida real:
     void inverseKinematics(double vx, double vy, double vth,
                            double &rpm0, double &rpm1, double &rpm2, double &rpm3) const
     {
         const double sqrt3_2 = std::sqrt(3.0) / 2.0;
 
-        const double v0 = -sqrt3_2 * vx - 0.5 * vy + robot_radius_ * vth;
-        const double v1 =  sqrt3_2 * vx - 0.5 * vy + robot_radius_ * vth;
-        const double v2 =  0.0     * vx + 1.0 * vy + robot_radius_ * vth;
+        const double v0 = -sqrt3_2 * vx - 0.5 * vy - robot_radius_ * vth;
+        const double v1 =  sqrt3_2 * vx - 0.5 * vy - robot_radius_ * vth;
+        const double v2 =  0.0     * vx + 1.0 * vy - robot_radius_ * vth;
 
         const double mps_to_rpm = 60.0 / (2.0 * M_PI * wheel_radius_);
 
@@ -36,14 +37,15 @@ public:
         rpm3 = 0.0;
     }
 
+    // Controla APENAS o movimento que o RViz vê (Odometria/TF):
     void forwardKinematics(double d0, double d1, double d2,
                            double &dx_body, double &dy_body, double &dth) const
     {
         const double sqrt3 = std::sqrt(3.0);
 
-        dx_body = (d1 - d0) / sqrt3;
-        dy_body = (2.0 * d2 - d0 - d1) / 3.0;
-        dth     = (d0 + d1 + d2) / (3.0 * robot_radius_);
+        dx_body = (d0 - d1) / sqrt3;                   // Frente/Trás no RViz
+        dy_body = (d0 + d1 - 2.0 * d2) / 3.0;          // Esquerda/Direita no RViz
+        dth     = (d0 + d1 + d2) / (3.0 * robot_radius_); // Giro no RViz
     }
 };
 
